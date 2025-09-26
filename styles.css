@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #E8956C; /* Amber */
+    --secondary-color: #6B9B6B; /* Light Pastel Coral */
+    --background-color: #FFF8E1; /* Light Cream */
+    --card-background: #FFFFFF;
+    --text-color: #424242;
+    --border-color: #E0E0E0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+#record-form {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+input[type="date"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.mood-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mood-selector input[type="radio"] {
+    display: none;
+}
+
+.mood-selector label {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mood-selector input[type="radio"]:checked + label {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    border-color: var(--primary-color);
+    font-weight: 700;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #FF8A65; /* Deeper Pastel Coral */
+}
+
+.chart-container {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.stats-section {
+    background-color: var(--card-background);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.stats-section h3 {
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+#stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+#stats-container p {
+    font-size: 1.1rem;
+}
+
+#stats-container span {
+    font-weight: 700;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.records-section h2 {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+#export-excel {
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#export-excel:hover {
+    background-color: #FFD54F; /* Lighter Amber */
+}
+
+.records-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+/* 게시판 목록 스타일 */
+.records-list-container {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    overflow: hidden; /* 자식 요소의 radius 적용을 위해 */
+}
+
+.records-header, .record-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 120px 100px 80px;  
+    gap: 15px;
+    padding: 15px 20px;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.records-header {
+    font-weight: 700;
+    background-color: #f9f9f9;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.records-header > div:nth-child(3) {
+    /* 반응 헤더 */
+}
+
+.record-row:last-child {
+    border-bottom: none;
+}
+
+.record-row:hover {
+    background-color: #fefcf5;
+}
+
+.record-type.deed {
+    color: #FFC107;
+    font-weight: 700;
+}
+
+.record-type.help {
+    color: #FF7043;
+    font-weight: 700;
+}
+
+.record-content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.record-date {
+    font-size: 0.9rem;
+    color: #757575;
+    text-align: center;
+}
+
+.record-mood {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: #757575;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .records-header {
+        display: none; /* 모바일에서는 헤더 숨김 */
+    }
+
+    .records-list-container {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .record-row {
+        grid-template-columns: 1fr; /* 1열로 변경 */
+        gap: 10px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 15px var(--shadow-color);
+        background-color: var(--card-background);
+        padding: 20px;
+    }
+
+    .record-row > div::before {
+        font-weight: 700;
+        margin-right: 10px;
+        color: var(--secondary-color);
+    }
+
+    .record-type::before { content: '종류: '; }
+    .record-content::before { content: '내용: '; }
+    .record-date::before { content: '날짜: '; }
+    .record-mood::before { content: '기분: '; }
+
+    .record-content {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: initial;
+    }
+
+    .record-date, .record-mood {
+        text-align: left;
+    }
+}
